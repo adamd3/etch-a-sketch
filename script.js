@@ -7,19 +7,29 @@ const changeBtn = document.querySelector('#change');
 
 let gridSize = DEFAULT_SIZE;
 
+
 function createGrid(size) {
   gridContainer.style.gridTemplateColumns = `repeat(${size}, 1fr)`;
   gridContainer.style.gridTemplateRows = `repeat(${size}, 1fr)`;
-
   for (let i = 0; i < size * size; i++) {
     const square = document.createElement('div');
     square.classList.add('square');
     square.addEventListener('mouseover', () => {
+      if (isDrawing) {
+        square.style.backgroundColor = 'black';
+      }
+    });
+    square.addEventListener('mousedown', () => {
+      isDrawing = true;
       square.style.backgroundColor = 'black';
+    });
+    square.addEventListener('mouseup', () => {
+      isDrawing = false;
     });
     gridContainer.appendChild(square);
   }
 }
+
 
 function sizePrompt() {
   let size = prompt('Enter new grid size (1-100):');
@@ -43,6 +53,7 @@ clearBtn.addEventListener('click', () => {
   const squares = document.querySelectorAll('.square');
   squares.forEach(square => square.style.backgroundColor = 'white');
 });
+
 
 resetBtn.addEventListener('click', () => {
   const squares = document.querySelectorAll('.square');
