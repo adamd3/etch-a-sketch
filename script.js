@@ -43,8 +43,9 @@ function createGrid(size) {
 }
 
 function updateGrid() {
-  const numSquares = parseInt(slider.value);
-  sliderValue.textContent = numSquares;
+  nCells = (slider.value).match(/\d+/);
+  const numSquares = parseInt(nCells);
+  sliderValue.textContent = `${numSquares} x ${numSquares}`;
   createGrid(numSquares);
 }
 
@@ -58,7 +59,7 @@ function resetGrid()  {
   squares.forEach(square => square.remove());
   let gridSize = DEFAULT_SIZE;
   slider.value = DEFAULT_SIZE;
-  sliderValue.textContent = DEFAULT_SIZE;
+  sliderValue.textContent = `${DEFAULT_SIZE} x ${DEFAULT_SIZE}`;
   createGrid(gridSize);
 }
 
