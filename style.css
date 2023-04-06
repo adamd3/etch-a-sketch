@@ -7,17 +7,11 @@
 
 * {
   box-sizing: border-box;
-  /* margin: 0;
-  padding: 0; */
 }
-
-/* :root {
-    --bg-color: #1D1D1D;
-} */
-
 
 body {
   background-color: #1D1D1D;
+  color: #fff;
   margin: 0;
   padding: 0;
   font-family: HelloEtchASketch, 'Segoe UI', Roboto, Ubuntu, sans-serif;;
@@ -76,32 +70,57 @@ button:active {
   /* margin-right: 1rem; */
 }
 
-.slider-label {
+#slider::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 0.125rem;
+  cursor: pointer;
+  background-color: #ccc;
+  border-radius: 0.25rem;
+}
+
+
+
+#slider {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 200px;
+  height: 5px;
+  background-color: #f0f0f0;
+  outline: none;
+  opacity: 0.7;
+  -webkit-transition: opacity 0.2s ease-in-out;
+  transition: opacity 0.2s ease-in-out;
   margin-right: 10px;
 }
 
-
-.slider {
+#slider::-webkit-slider-thumb {
+  height: 1.25rem;
+  width: 1.25rem;
+  border-radius: 50%;
+  background-color: #4968e3;
   -webkit-appearance: none;
-  width: 200px;
-  height: 10px;
-  background: #ccc;
-  outline: none;
-  opacity: 0.7;
-  -webkit-transition: .2s;
-  transition: opacity .2s;
-}
-
-.slider::-webkit-slider-thumb {
-  -webkit-appearance: none;
-  appearance: none;
-  width: 15px;
-  height: 15px;
-  background: #4CAF50;
+  margin-top: -0.5rem;
   cursor: pointer;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  transition: all 0.2s ease-in-out;
 }
 
-.slider::-moz-range-thumb {
+#slider::-webkit-slider-thumb:hover {
+  background-color: #1d38a4;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transform: translateY(-2px);
+}
+
+#slider:::-webkit-slider-thumb:active {
+  background-color: #0530da;
+  box-shadow: none;
+  transform: translateY(0);
+}
+
+
+
+
+#slider::-moz-range-thumb {
   width: 15px;
   height: 15px;
   background: #4CAF50;
@@ -113,16 +132,10 @@ button:active {
   margin-left: 0.5rem;
 }
 
-/* .grid {
-  display: grid;
-  grid-template-columns: repeat(16, 1fr);
-  grid-template-rows: repeat(16, 1fr);
-  grid-gap: 1px;
-  background-color: #fff;
-  border: 1px solid #333;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
-  margin-bottom: 20px;
-} */
+.slider-label {
+  margin-right: 10px;
+}
+
 
 .grid {
   display: grid;
