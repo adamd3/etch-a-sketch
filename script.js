@@ -9,6 +9,14 @@ const sliderValue = document.getElementById('slider-value');
 let gridSize = DEFAULT_SIZE;
 let isDrawing = null;
 
+
+createGrid(gridSize);
+
+clearBtn.addEventListener('click', clearGrid);
+slider.addEventListener('change', updateGrid);
+resetBtn.addEventListener('click', resetGrid);
+
+
 function createGrid(size) {
   gridContainer.style.gridTemplateColumns = `repeat(${size}, 1fr)`;
   gridContainer.style.gridTemplateRows = `repeat(${size}, 1fr)`;
@@ -31,28 +39,22 @@ function createGrid(size) {
   }
 }
 
-
 function updateGrid() {
   const numSquares = parseInt(slider.value);
   sliderValue.textContent = numSquares;
   createGrid(numSquares);
 }
 
-createGrid(gridSize);
-
-clearBtn.addEventListener('click', () => {
+function clearGrid () {
   const squares = document.querySelectorAll('.square');
-  // squares.forEach(square => square.style.backgroundColor = 'white');
   squares.forEach(square => square.removeAttribute('style'));
-});
+}
 
-
-resetBtn.addEventListener('click', () => {
+function resetGrid()  {
   const squares = document.querySelectorAll('.square');
   squares.forEach(square => square.remove());
   let gridSize = DEFAULT_SIZE;
   createGrid(gridSize);
-});
+}
 
 
-slider.addEventListener('change', updateGrid);
