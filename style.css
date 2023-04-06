@@ -5,6 +5,19 @@
   align-items: center;
 }
 
+.buttons {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
+}
+
+button {
+  margin: 0 10px;
+  padding: 10px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
 .grid {
   display: grid;
   grid-template-columns: repeat(16, 1fr);
