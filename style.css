@@ -199,7 +199,12 @@ button:active {
 
 @media (max-width: 650px) {
   .title {
-    font-size: 2rem;
+    font-size: 3rem;
+  }
+
+  .options {
+    width: 150px;
+    gap: 16px;
   }
 
   #slider {
