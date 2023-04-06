@@ -2,8 +2,9 @@ const gridContainer = document.querySelector('#grid');
 const clearBtn = document.querySelector('#clear');
 const resetBtn = document.querySelector('#reset');
 const changeBtn = document.querySelector('#change');
+const DEFAULT_SIZE = 16;
 
-let gridSize = 16;
+let gridSize = DEFAULT_SIZE;
 
 function createGrid(size) {
   gridContainer.style.gridTemplateColumns = `repeat(${size}, 1fr)`;
@@ -29,6 +30,7 @@ clearBtn.addEventListener('click', () => {
 resetBtn.addEventListener('click', () => {
   const squares = document.querySelectorAll('.square');
   squares.forEach(square => square.remove());
+  let gridSize = DEFAULT_SIZE;
   createGrid(gridSize);
 });
 
