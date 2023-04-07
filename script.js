@@ -2,12 +2,14 @@ const DEFAULT_SIZE = 16;
 
 const gridContainer = document.getElementById('grid');
 const clearBtn = document.getElementById('clear');
+const blackButton = document.getElementById('black');
 const rainbowButton = document.getElementById('rainbow');
 const slider = document.getElementById('slider');
 const sliderValue = document.getElementById('slider-value');
 
 let gridSize = DEFAULT_SIZE;
 let penActive = false;
+let blackMode = true;
 let rainbowMode = false;
 
 createGrid(gridSize);
@@ -15,8 +17,14 @@ createGrid(gridSize);
 clearBtn.addEventListener('click', clearGrid);
 slider.addEventListener('change', updateGrid);
 
+blackButton.addEventListener("click", () => {
+  blackMode = true;
+  rainbowMode = false;
+});
+
 rainbowButton.addEventListener("click", () => {
-  rainbowMode = !rainbowMode;
+  blackMode = false;
+  rainbowMode = true;
 });
 
 grid.addEventListener('click', () => {
