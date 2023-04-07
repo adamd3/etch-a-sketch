@@ -7,8 +7,7 @@ const slider = document.getElementById('slider');
 const sliderValue = document.getElementById('slider-value');
 
 let gridSize = DEFAULT_SIZE;
-let isDrawing = null;
-
+let penActive = null;
 
 createGrid(gridSize);
 
@@ -16,6 +15,13 @@ clearBtn.addEventListener('click', clearGrid);
 slider.addEventListener('change', updateGrid);
 resetBtn.addEventListener('click', resetGrid);
 
+grid.addEventListener('click', () => {
+  if (penActive) {
+    penActive = false;
+  } else {
+    penActive = true;
+  }
+});
 
 function createGrid(size) {
   while (gridContainer.firstChild) {
@@ -27,16 +33,9 @@ function createGrid(size) {
     const square = document.createElement('div');
     square.classList.add('square');
     square.addEventListener('mouseover', () => {
-      if (isDrawing) {
+      if (penActive) {
         square.style.backgroundColor = 'black';
       }
-    });
-    square.addEventListener('mousedown', () => {
-      isDrawing = true;
-      square.style.backgroundColor = 'black';
-    });
-    square.addEventListener('mouseup', () => {
-      isDrawing = false;
     });
     gridContainer.appendChild(square);
   }
