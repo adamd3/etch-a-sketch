@@ -8,6 +8,10 @@
     <link rel="shortcut icon" href="favicon.ico" />
     <link rel="stylesheet" href="style.css">
     <script src="script.js" defer></script>
+    <script 
+        src="https://kit.fontawesome.com/4c536a6bd5.js" 
+        crossorigin="anonymous"
+    ></script>
 </head>
 <body>
     <main class="main">
@@ -19,21 +23,26 @@
             <button id="reset">Reset</button>
             <div class="slider-container">
                 <label for="slider" class="slider-label">Grid size: </label>
-                    <input type="range" id="slider" name="slider" min="2" max="100" value="16">
+                    <input 
+                        type="range" id="slider" name="slider" 
+                        min="2" max="100" value="16"
+                    >
                 <span id="slider-value">16 x 16</span>
             </div>
         </div>
         <div class="info">
-            Click in the drawing area to start sketching.<br>
+            Click in the drawing area to start sketching<br>
         </div>
         <div id="grid" class="grid"></div>
     </main>
 
 
     <footer class="footer">
-        Built by
-        <a class="footer-link" href="https://github.com/adamd3/"target="_blank">adamd3</a> | 
-        <a class="footer-link" href="https://github.com/adamd3/etch-a-sketch" target="_blank">Source code</a>
+        Built by adamd3 
+        <a class="footer-link" href="https://github.com/adamd3/" 
+            target="_blank"><i class="fa-brands fa-github"></i></a> | 
+        <a class="footer-link" href="https://github.com/adamd3/etch-a-sketch" 
+            target="_blank">Code</a>
     </footer>
 
 </body>
