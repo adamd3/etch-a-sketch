@@ -152,7 +152,7 @@ button:active {
   border-radius: 15px;
   border-width: 15px 15px;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
-  margin-bottom: 20px;
+  margin: 20px;
 }
 
 .grid div {
@@ -187,8 +187,8 @@ button:active {
     gap: 16px;
   }
 
-  #slider {
-    width: 100px;
+  #reset {
+    display: none;
   }
 
   .grid {
@@ -207,8 +207,8 @@ button:active {
     gap: 16px;
   }
 
-  #slider {
-    width: 60px;
+  #reset {
+    display: none;
   }
 
   .grid {
