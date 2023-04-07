@@ -1,4 +1,4 @@
-const DEFAULT_SIZE = 16;
+const DEFAULT_SIZE = 32;
 
 const gridContainer = document.getElementById('grid');
 const clearBtn = document.getElementById('clear');
@@ -12,6 +12,7 @@ let penActive = false;
 let blackMode = true;
 let rainbowMode = false;
 
+sliderValue.textContent = `${DEFAULT_SIZE} x ${DEFAULT_SIZE}`;
 createGrid(gridSize);
 
 clearBtn.addEventListener('click', clearGrid);
