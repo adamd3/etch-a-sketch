@@ -18,10 +18,9 @@ body {
   color: #fff;
   margin: 0;
   padding: 0;
-  font-family: HelloEtchASketch, 'Segoe UI', Roboto, Ubuntu, sans-serif;;
+  font-family: HelloEtchASketch, 'Segoe UI', Roboto, Ubuntu, sans-serif;
   text-align: center;
 }
-
 
 .title {
   font-size: 4rem;
@@ -59,6 +58,7 @@ button {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
   cursor: pointer;
   transition: all 0.2s ease-in-out;
+  text-shadow: 0px 0px 5px black;
 }
 
 button:hover {
@@ -71,6 +71,16 @@ button:active {
   background-color: #0530da;
   box-shadow: none;
   transform: translateY(0);
+}
+
+#rainbow {
+  background: linear-gradient(
+    to right, red, orange, yellow, green, blue, indigo, violet);
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 0.25rem;
+  cursor: pointer;
 }
 
 .slider-container {
@@ -170,6 +180,9 @@ button:active {
   transition: background-color 0.2s ease-in-out;
 }
 
+.fa-square-github {
+  color: white;
+}
 
 @media (max-width: 1200px) {
   .main {

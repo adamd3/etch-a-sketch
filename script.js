@@ -2,18 +2,22 @@ const DEFAULT_SIZE = 16;
 
 const gridContainer = document.getElementById('grid');
 const clearBtn = document.getElementById('clear');
-const resetBtn = document.getElementById('reset');
+const rainbowButton = document.getElementById('rainbow');
 const slider = document.getElementById('slider');
 const sliderValue = document.getElementById('slider-value');
 
 let gridSize = DEFAULT_SIZE;
-let penActive = null;
+let penActive = false;
+let rainbowMode = false;
 
 createGrid(gridSize);
 
 clearBtn.addEventListener('click', clearGrid);
 slider.addEventListener('change', updateGrid);
-resetBtn.addEventListener('click', resetGrid);
+
+rainbowButton.addEventListener("click", () => {
+  rainbowMode = !rainbowMode;
+});
 
 grid.addEventListener('click', () => {
   if (penActive) {
@@ -34,12 +38,20 @@ function createGrid(size) {
     square.classList.add('square');
     square.addEventListener('mouseover', () => {
       if (penActive) {
-        square.style.backgroundColor = 'black';
+        if (!rainbowMode) {
+          square.style.backgroundColor = "#000000";
+        } else {
+          const r = Math.floor(Math.random() * 256);
+          const g = Math.floor(Math.random() * 256);
+          const b = Math.floor(Math.random() * 256);
+          square.style.backgroundColor = `rgb(${r}, ${g}, ${b})`;
+        }
       }
     });
     gridContainer.appendChild(square);
   }
 }
+
 
 function updateGrid() {
   nCells = (slider.value).match(/\d+/);
@@ -52,14 +64,3 @@ function clearGrid () {
   const squares = document.querySelectorAll('.square');
   squares.forEach(square => square.removeAttribute('style'));
 }
-
-function resetGrid()  {
-  const squares = document.querySelectorAll('.square');
-  squares.forEach(square => square.remove());
-  let gridSize = DEFAULT_SIZE;
-  slider.value = DEFAULT_SIZE;
-  sliderValue.textContent = `${DEFAULT_SIZE} x ${DEFAULT_SIZE}`;
-  createGrid(gridSize);
-}
-
-
